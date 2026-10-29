@@ -1,0 +1,108 @@
+.trust-badges-section {
+	background-color: var(--background);
+	border-top: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color);
+	transition: background-color 0.3s ease, border-color 0.3s ease;
+
+	& .trust-badges-container {
+		max-width: 1280px;
+		margin: 0 auto;
+		width: 100%;
+		padding: 0 0.5rem;
+	}
+
+	& .trust-badges-grid {
+		gap: 1rem;
+
+		@media (min-width: 1024px) {
+			gap: 1.5rem;
+		}
+	}
+
+	& .trust-badge-card {
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: 1.25rem;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.75rem;
+		box-shadow: var(--shadow-smooth);
+		transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+		@media (min-width: 640px) {
+			flex-direction: row;
+			align-items: center;
+			padding: 1.25rem;
+			gap: 1rem;
+			border-radius: 1.5rem;
+		}
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.12);
+		}
+
+		&.pink-accent:hover {
+			border-color: var(--pregnancy-pink);
+		}
+
+		&.blue-accent:hover {
+			border-color: var(--pregnancy-blue);
+		}
+
+		& .badge-icon-wrapper {
+			width: 2.75rem;
+			height: 2.75rem;
+			border-radius: 0.875rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.25rem;
+			flex-shrink: 0;
+
+			@media (min-width: 640px) {
+				width: 3.25rem;
+				height: 3.25rem;
+				font-size: 1.5rem;
+			}
+		}
+
+		&.pink-accent .badge-icon-wrapper {
+			background-color: var(--pregnancy-pink-light);
+		}
+
+		&.blue-accent .badge-icon-wrapper {
+			background-color: var(--pregnancy-blue-light);
+		}
+
+		& .badge-content {
+			display: flex;
+			flex-direction: column;
+			gap: 0.15rem;
+			text-align: right;
+
+			& .badge-value {
+				font-size: 1.35rem;
+				font-weight: 700;
+				color: var(--foreground);
+				line-height: 1.1;
+
+				@media (min-width: 640px) {
+					font-size: 1.5rem;
+				}
+			}
+
+			& .badge-label {
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+				line-height: 1.35;
+
+				@media (min-width: 640px) {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}

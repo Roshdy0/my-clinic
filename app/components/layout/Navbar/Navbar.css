@@ -1,0 +1,154 @@
+/* @/app/components/layout/Navbar/Navbar.css */
+.clinic-navbar {
+	background-color: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	backdrop-filter: blur(12px);
+	transition: var(--transition-base);
+
+	& .nav-container {
+		display: flex;
+		direction: rtl;
+		margin: 0 auto;
+		max-width: 1280px;
+		align-items: center;
+		padding: 1rem 1.5rem;
+		justify-content: space-between;
+	}
+
+	& .nav-logo {
+		gap: 0.5rem;
+		display: flex;
+		font-weight: 700;
+		font-size: 1.25rem;
+		align-items: center;
+		color: var(--color-text-main);
+
+		& span {
+			color: var(--pregnancy-pink);
+		}
+	}
+
+	& .nav-links {
+		display: none;
+		align-items: center;
+		gap: 1.5rem;
+
+		/* تعديل النقطة الفاصلة لتناسب الشاشات الأكبر من 1024px فقط */
+		@media (min-width: 1024px) {
+			display: flex;
+		}
+
+		& a {
+			color: var(--color-text-muted);
+			font-weight: 500;
+			transition: var(--transition-base);
+
+			&:hover {
+				color: var(--color-primary);
+			}
+		}
+	}
+
+	& .nav-actions {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.theme-toggle-btn {
+		cursor: pointer;
+		background: transparent;
+		border: none;
+		font-size: 1.2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+/* تنسيقات الأجهزة اللوحية والموبايل (أقل من 1024px) */
+.mobile-menu-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: transparent;
+	border: 1px solid var(--border-color);
+	color: var(--foreground);
+	font-size: 1.25rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 0.75rem;
+	cursor: pointer;
+	transition: var(--transition-base);
+
+	@media (min-width: 1024px) {
+		display: none;
+	}
+
+	&:hover {
+		background-color: var(--pregnancy-pink-light);
+		color: var(--pregnancy-pink);
+	}
+}
+
+.desktop-booking-btn {
+	display: none;
+
+	@media (min-width: 1024px) {
+		display: inline-flex;
+	}
+}
+
+/* القائمة المنسدلة للشاشات أقل من 1024px */
+.mobile-dropdown-menu {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	background-color: var(--color-surface);
+	border-bottom: 1px solid var(--color-border);
+	padding: 1.5rem;
+	box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+	animation: slideDown 0.3s ease-in-out;
+
+	@media (min-width: 1024px) {
+		display: none;
+	}
+
+	& .mobile-nav-link {
+		padding: 0.75rem 1rem;
+		border-radius: 0.75rem;
+		font-weight: 600;
+		color: var(--color-text-main);
+		background-color: var(--background);
+		border: 1px solid var(--border-color);
+		transition: all 0.2s ease;
+		text-align: right;
+		text-decoration: none;
+
+		&:hover {
+			background-color: var(--pregnancy-pink-light);
+			color: var(--pregnancy-pink);
+		}
+
+		&.calc-highlight {
+			background-color: var(--pregnancy-blue-light);
+			color: var(--pregnancy-blue);
+			border-color: rgba(2, 132, 199, 0.2);
+		}
+	}
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

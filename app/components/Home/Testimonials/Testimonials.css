@@ -1,0 +1,160 @@
+.testimonials-section {
+	background-color: var(--background);
+	padding: 4rem 1rem;
+	transition: background-color 0.3s ease;
+
+	@media (min-width: 768px) {
+		padding: 5rem 2rem;
+	}
+
+	& .testimonials-container {
+		max-width: 1280px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	& .testimonials-header {
+		text-align: center;
+		max-width: 42rem;
+		margin: 0 auto 3rem auto;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		& .testimonials-badge {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.35rem 1rem;
+			border-radius: 9999px;
+			font-size: 0.75rem;
+			font-weight: 600;
+			background-color: var(--pregnancy-pink-light);
+			color: var(--pregnancy-pink);
+			margin: 0 auto;
+		}
+
+		& .testimonials-title {
+			font-size: 2rem;
+			font-weight: 700;
+			color: var(--foreground);
+			line-height: 1.2;
+
+			@media (min-width: 640px) {
+				font-size: 2.5rem;
+			}
+		}
+
+		& .testimonials-subtitle {
+			font-size: 0.95rem;
+			color: var(--color-text-muted);
+			line-height: 1.6;
+
+			@media (min-width: 640px) {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	& .testimonials-grid {
+		gap: 1.5rem;
+
+		@media (min-width: 1024px) {
+			gap: 2rem;
+		}
+	}
+
+	& .testimonial-card {
+		background-color: var(--card-bg);
+		border: 1px solid var(--border-color);
+		border-radius: 1.75rem;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		box-shadow: var(--shadow-smooth);
+		transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+		text-align: right;
+
+		&:hover {
+			transform: translateY(-6px);
+			box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.08);
+		}
+
+		&.pink-card:hover {
+			border-color: var(--pregnancy-pink);
+		}
+
+		&.blue-card:hover {
+			border-color: var(--pregnancy-blue);
+		}
+
+		& .card-top-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			& .stars {
+				font-size: 0.9rem;
+				letter-spacing: 2px;
+			}
+
+			& .verified-tag {
+				font-size: 0.7rem;
+				font-weight: 600;
+				padding: 0.25rem 0.75rem;
+				border-radius: 9999px;
+				background-color: var(--pregnancy-blue-light);
+				color: var(--pregnancy-blue);
+			}
+		}
+
+		&.pink-card .verified-tag {
+			background-color: var(--pregnancy-pink-light);
+			color: var(--pregnancy-pink);
+		}
+
+		& .testimonial-comment {
+			font-size: 0.95rem;
+			color: var(--foreground);
+			line-height: 1.7;
+			font-style: italic;
+			opacity: 0.9;
+		}
+
+		& .patient-info {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			margin-top: auto;
+			padding-top: 1rem;
+			border-top: 1px solid var(--border-color);
+
+			& .patient-avatar {
+				width: 2.75rem;
+				height: 2.75rem;
+				border-radius: 50%;
+				background: linear-gradient(135deg, var(--pregnancy-pink), var(--pregnancy-blue));
+				color: #ffffff;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 700;
+				font-size: 1rem;
+				flex-shrink: 0;
+			}
+
+			& .patient-name {
+				font-size: 0.95rem;
+				font-weight: 700;
+				color: var(--foreground);
+			}
+
+			& .patient-status {
+				font-size: 0.75rem;
+				color: var(--color-text-muted);
+				margin-top: 0.1rem;
+			}
+		}
+	}
+}

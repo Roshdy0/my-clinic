@@ -1,0 +1,78 @@
+import Link from "next/link";
+import "./Services.css";
+
+export default function Services() {
+	const servicesList = [
+		{
+			title: "متابعة الحمل العادي وعالي الخطورة",
+			description: "رعاية دقيقة وشاملة للأم والجنين منذ اللحظات الأولى وحتى الولادة الآمنة مع أحدث الفحوصات والتقارير الطبية.",
+			icon: "🤰",
+			accent: "pink",
+			slug: "pregnancy-follow-up",
+		},
+		{
+			title: "علاج تأخر الحمل والحقن المجهري",
+			description: "برامج علاجية متقدمة ومخصصة لكل حالة بعناية فائقة لتحقيق حلم الأمومة بأعلى نسب نجاح ممكنة.",
+			icon: "👶",
+			accent: "blue",
+			slug: "infertility-treatment",
+		},
+		{
+			title: "جراحات النساء والتجميل النسائي",
+			description: "إجراءات جراحية وتجميلية دقيقة بأحدث التقنيات لضمان أعلى مستويات الراحة والثقة والصحة التامة.",
+			icon: "✨",
+			accent: "pink",
+			slug: "gynecological-surgeries",
+		},
+		{
+			title: "السونار المتقدم (الرباعي والخماسي)",
+			description: "تصوير تلفزيوني عالي الدقة للاطمئنان المبكر على صحة الجنين ومتابعة تفاصيل نموه بوضوح مذهل.",
+			icon: "🩺",
+			accent: "blue",
+			slug: "advanced-ultrasound",
+		},
+		{
+			title: "رعاية ما بعد الولادة وصحة المرأة",
+			description: "متابعة شاملة للصحة الجسدية والنفسية للأم بعد الولادة مع توفير الإرشادات اللازمة لرعاية الصغير.",
+			icon: "🌸",
+			accent: "pink",
+			slug: "postnatal-care",
+		},
+		{
+			title: "استشارات تنظيم الأسرة والصحة الإنجابية",
+			description: "توجيه طبي آمن وموثوق لاختيار الوسيلة الأنسب للحالة الصحية بما يضمن راحة وسلامة السيدة.",
+			icon: "📋",
+			accent: "blue",
+			slug: "family-planning",
+		},
+	];
+
+	return (
+		<section className="services-section" id="services">
+			<div className="services-container">
+				{/* رأس القسم */}
+				<div className="services-header">
+					<span className="services-badge">خدماتنا الطبية المتخصصة</span>
+					<h2 className="services-title">رعاية متكاملة لصحة المرأة والأمومة</h2>
+					<p className="services-subtitle">نقدم باقة شاملة من الخدمات الطبية المتطورة بمعايير عالمية تجمع بين الدقة العلمية والرعاية الإنسانية الدافئة.</p>
+				</div>
+
+				{/* شبكة الخدمات (استخدام Tailwind حصرياً للـ Grid والميديا كويري) */}
+				<div className="services-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+					{servicesList.map((service, index) => (
+						<div key={index} className={`service-card ${service.accent === "pink" ? "pink-card" : "blue-card"}`}>
+							<div className="service-icon-box">
+								<span>{service.icon}</span>
+							</div>
+							<h3 className="service-card-title">{service.title}</h3>
+							<p className="service-card-desc">{service.description}</p>
+							<Link href={`/services/${service.slug}`} className="service-link">
+								اعرفي المزيد ←
+							</Link>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+	);
+}

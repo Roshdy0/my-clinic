@@ -1,26 +1,152 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root, [data-theme='light'] {
+	--background: #fdfcff;
+	--foreground: #1e293b;
+
+	--pregnancy-pink: #db2777;
+	--pregnancy-pink-light: #fce7f3;
+	--pregnancy-pink-hover: #be185d;
+
+	--pregnancy-blue: #0284c7;
+	--pregnancy-blue-light: #e0f2fe;
+	--pregnancy-blue-hover: #0369a1;
+
+	--card-bg: #ffffff;
+	--border-color: #e2e8f0;
+
+	--color-primary: #e11d48;
+	--color-primary-light: #fff1f2;
+	--color-primary-dark: #be123c;
+
+	--color-bg-main: #f8fafc;
+	--color-surface: #ffffff;
+
+	--color-text-main: #1e293b;
+	--color-text-muted: #64748b;
+	--color-border: rgba(226, 232, 240, 0.8);
+
+	--radius-box: 1rem;
+	--shadow-smooth: 0 10px 25px -5px rgba(225, 29, 72, 0.08);
+	--transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-theme='dark'] {
+	--background: #0f0c1b;
+	--foreground: #f8fafc;
+
+	--pregnancy-pink: #f472b6;
+	--pregnancy-pink-light: #831843;
+	--pregnancy-pink-hover: #f7a8c4;
+
+	--pregnancy-blue: #38bdf8;
+	--pregnancy-blue-light: #075985;
+	--pregnancy-blue-hover: #7dd3fc;
+
+	--card-bg: #181427;
+	--border-color: #2e2844;
+
+	--color-primary: #fb7185;
+	--color-primary-light: #2c1624;
+	--color-primary-dark: #f43f5e;
+
+	--color-bg-main: #0f0c1b;
+	--color-surface: #19142b;
+
+	--color-text-main: #f1f5f9;
+	--color-text-muted: #94a3b8;
+	--color-border: rgba(255, 255, 255, 0.08);
+
+	--radius-box: 1rem;
+	--shadow-smooth: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+	--transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background-color: var(--background);
+		color: var(--foreground);
+		font-family: Arial, sans-serif;
+		font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+		overflow-x: hidden;
+		transition: background-color 0.3s ease, color 0.3s ease;
+	}
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+	.clinic-card {
+		background-color: var(--card-bg);
+		border-radius: var(--radius-box);
+		padding: 1.75rem;
+		border: 1px solid var(--border-color);
+		transition: var(--transition-base);
+
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow-smooth);
+			border-color: rgba(225, 29, 72, 0.3);
+
+			& .card-icon {
+				background-color: var(--color-primary);
+				color: #ffffff;
+				transform: scale(1.05);
+			}
+		}
+
+		& h3 {
+			color: var(--color-text-main);
+			font-weight: 700;
+			font-size: 1.25rem;
+			margin-bottom: 0.5rem;
+		}
+
+		& p {
+			color: var(--color-text-muted);
+			font-size: 0.95rem;
+			line-height: 1.6;
+		}
+	}
+
+	.btn-primary {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.875rem 2rem;
+		background-color: var(--color-primary);
+		color: #ffffff;
+		font-weight: 600;
+		border-radius: var(--radius-box);
+		box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+		transition: var(--transition-base);
+
+		&:hover {
+			background-color: var(--color-primary-dark);
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35);
+		}
+
+		&:active {
+			transform: translateY(0);
+		}
+	}
+}
+
+@layer utilities {
+	.responsive-grid {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		gap: 1.5rem;
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
 }
